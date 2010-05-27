@@ -609,8 +609,10 @@ $.ui.plugin.add("draggable", "cursor", {
 		t.css("cursor", o.cursor);
 	},
 	stop: function(event, ui) {
-		var o = $(this).data('draggable').options;
-		if (o._cursor) $('body').css("cursor", o._cursor);
+		if ($(this).data('draggable')) {
+			var o = $(this).data('draggable').options;
+			if (o._cursor) $('body').css("cursor", o._cursor);
+		}
 	}
 });
 
@@ -789,8 +791,10 @@ $.ui.plugin.add("draggable", "zIndex", {
 		t.css('zIndex', o.zIndex);
 	},
 	stop: function(event, ui) {
-		var o = $(this).data("draggable").options;
-		if(o._zIndex) $(ui.helper).css('zIndex', o._zIndex);
+		if ($(this).data('draggable')) {
+			var o = $(this).data("draggable").options;
+			if(o._zIndex) $(ui.helper).css('zIndex', o._zIndex);
+		}
 	}
 });
 
